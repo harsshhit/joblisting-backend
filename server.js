@@ -20,6 +20,10 @@ mongoose
     console.error("MongoDB connection error:", err);
   });
 
+app.get("/", (req, res) => {
+  res.send("server is working fine");
+});
+
 app.use("/api", jobRoutes);
 
 app.listen(PORT, () => {
