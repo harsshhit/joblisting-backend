@@ -2,7 +2,7 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
-const jobRoutes = require("./routes/jobroutes");
+const jobRoutes = require("./routes/jobRoutes");
 require("dotenv").config(); // Import dotenv to load environment variables
 
 const app = express();
@@ -12,11 +12,7 @@ app.use(cors());
 app.use(express.json());
 
 mongoose
-  .connect(process.env.MNG, {
-    // Use the MongoDB connection string from the .env file
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  })
+  .connect(process.env.MNG)
   .then(() => {
     console.log("Connected to MongoDB successfully");
   })

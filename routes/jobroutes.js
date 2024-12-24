@@ -3,7 +3,7 @@ const express = require("express");
 const router = express.Router();
 const Job = require("../models/Job");
 
-router.get("/job", async (req, res) => {
+router.get("/jobs", async (req, res) => {
   try {
     const { location } = req.query;
     let query = {};
