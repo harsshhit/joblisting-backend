@@ -2,6 +2,8 @@ const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
 const jobsRoutes = require("./routes/jobsRoutes");
+const Job = require("./models/Job");
+
 require("dotenv").config(); // Import dotenv to load environment variables
 
 const app = express();
@@ -26,6 +28,8 @@ mongoose
 app.get("/", (req, res) => {
   res.send("Server is working fine");
 });
+
+console.log("Job.js path:", require.resolve("./models/Job"));
 
 app.use("/api", jobsRoutes);
 
