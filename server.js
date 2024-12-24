@@ -1,7 +1,7 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
-const jobRoutes = require("./routes/jobRoutes");
+const jobsRoutes = require("./routes/jobsRoutes");
 require("dotenv").config(); // Import dotenv to load environment variables
 
 const app = express();
@@ -27,7 +27,7 @@ app.get("/", (req, res) => {
   res.send("Server is working fine");
 });
 
-app.use("/api", jobRoutes);
+app.use("/api", jobsRoutes);
 
 // Start Server
 app.listen(PORT, () => {
