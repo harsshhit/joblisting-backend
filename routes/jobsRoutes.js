@@ -1,6 +1,7 @@
 const express = require("express");
+const Job = require("../models/Job.js");
+
 const router = express.Router();
-const Job = require("../models/Job");
 
 // GET /api/jobs
 router.get("/jobs", async (req, res) => {
@@ -9,10 +10,10 @@ router.get("/jobs", async (req, res) => {
     const query = {};
 
     if (location) {
-      query.location = { $regex: location, $options: "i" }; // Case-insensitive regex match
+      query.location = { $regex: location, $options: "i" };
     }
 
-    const jobs = await Job.find(query).sort({ postedDateTime: -1 }); // Sort by latest jobs
+    const jobs = await Job.find(query).sort({ postedDateTime: -1 });
     res.status(200).json(jobs);
   } catch (error) {
     console.error("Error fetching jobs:", error);

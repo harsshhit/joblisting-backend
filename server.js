@@ -1,10 +1,10 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
-const jobsRoutes = require("./routes/jobsRoutes");
-const Job = require("./models/Job");
+const dotenv = require("dotenv");
+const jobsRoutes = require("./routes/jobsRoutes.js");
 
-require("dotenv").config(); // Import dotenv to load environment variables
+dotenv.config();
 
 const app = express();
 const PORT = process.env.PORT || 5000;
@@ -15,13 +15,16 @@ app.use(express.json());
 
 // Database Connection
 mongoose
-  .connect(process.env.MNG, { useNewUrlParser: true, useUnifiedTopology: true }) // Add connection options for compatibility
+  .connect(process.env.MNG, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  })
   .then(() => {
     console.log("Connected to MongoDB successfully");
   })
   .catch((err) => {
     console.error("MongoDB connection error:", err);
-    process.exit(1); // Exit the process if the connection fails
+    process.exit(1);
   });
 
 // Routes
@@ -29,11 +32,11 @@ app.get("/", (req, res) => {
   res.send("Server is working fine");
 });
 
-console.log("Job.js path:", require.resolve("./models/Job"));
-
 app.use("/api", jobsRoutes);
 
 // Start Server
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });
+
+module.exports = app;
