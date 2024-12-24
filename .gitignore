@@ -1,31 +1,56 @@
-# Start of Selection
-# Node.js
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Runtime data
+pids
+*.pid
+*.pid.lock
+
+# Dependency directories
 node_modules/
-npm-debug.log
+.bower_components/
 
-# Python
-__pycache__/
-*.py[cod]
-*.pyo
-*.pyd
-env/
-venv/
+# Environment variables
+.env
+.env.local
+.env.*.local
 
-# Java
-*.class
-*.jar
-*.war
-*.ear
-target/
+# Build output
+dist/
+build/
+.cache/
+.next/
+out/
 
-# IDEs
-.idea/
-*.sublime-workspace
-*.sublime-project
-.vscode/
-*.iml
+# Test output
+coverage/
 
-# OS generated files
+# System files
 .DS_Store
 Thumbs.db
-.env
+.idea/
+.vscode/
+*.swp
+
+# Temporary files
+*.tmp
+*.temp
+*.bak
+*.backup
+
+# TypeScript
+*.tsbuildinfo
+
+# Generated files
+public/**/*.map
+.sass-cache/
+*.css.map
+*.js.map
+
+# Package lock files (optional, if you don’t commit these)
+package-lock.json
+yarn.lock
